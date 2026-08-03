@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Techzolution — Design. Build. Automate.</title>
+  <meta name="description" content="Techzolution is a global team of builders, designers, and engineers turning bold ideas into digital platforms, physical products, and intelligent systems." />
+  <link rel="icon" type="image/png" href="image/techzolution-logo/techzolution-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="image/techzolution-logo/techzolution-logo.png" alt="Techzolution Logo" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Services ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="services/website-development.html"><span class="dot" style="background:#135AA6"></span>Website Development</a>
+          <a href="services/print-on-demand.html"><span class="dot" style="background:#14AD9F"></span>Print-on-Demand</a>
+          <a href="services/plastic-mold-design.html"><span class="dot" style="background:#0B1F3A"></span>Plastic Mold Design</a>
+          <a href="services/architectural-visualization.html"><span class="dot" style="background:linear-gradient(135deg,#135AA6,#14AD9F)"></span>Architectural Visualization</a>
+          <a href="services/ai-automation.html"><span class="dot" style="background:linear-gradient(135deg,#0B1F3A,#135AA6)"></span>AI Development & Automation</a>
+        </div>
+      </li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 24px;font-size:14px;">Book a Consultation</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <span class="mobile-service-label">Services</span>
+    <a href="services/website-development.html" style="padding-left:16px;font-size:14px;">Website Development</a>
+    <a href="services/print-on-demand.html" style="padding-left:16px;font-size:14px;">Print-on-Demand</a>
+    <a href="services/plastic-mold-design.html" style="padding-left:16px;font-size:14px;">Plastic Mold Design</a>
+    <a href="services/architectural-visualization.html" style="padding-left:16px;font-size:14px;">Architectural Visualization</a>
+    <a href="services/ai-automation.html" style="padding-left:16px;font-size:14px;">AI Development & Automation</a>
+    <a href="about.html">About</a>
+    <a href="team.html">Team</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Book a Consultation</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home" style="background:linear-gradient(160deg,#F0F7FF 0%,#F7FAFC 50%,#EEF9F8 100%);padding-bottom:80px;">
+  <!-- Background layers -->
+  <div class="hero-bg-mesh">
+    <div class="hero-blob" style="width:650px;height:650px;background:#135AA6;top:-20%;left:-10%;opacity:0.07;filter:blur(100px);"></div>
+    <div class="hero-blob" style="width:500px;height:500px;background:#14AD9F;top:20%;right:-8%;animation-delay:-3s;opacity:0.09;filter:blur(90px);"></div>
+    <div class="hero-blob" style="width:350px;height:350px;background:#FF6B4A;bottom:10%;left:40%;animation-delay:-5s;opacity:0.05;filter:blur(80px);"></div>
+    <!-- grid lines -->
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(19,90,166,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(19,90,166,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 0%,black 50%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 0%,black 50%,transparent 100%);"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;padding-top:32px;">
+    <div class="hero-split">
+
+      <!-- LEFT: Copy -->
+      <div class="hero-split-left">
+        <!-- Badge -->
+        <div class="reveal" style="margin-bottom:24px;">
+          <span style="display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;color:#14AD9F;background:rgba(20,173,159,0.08);padding:7px 16px;border-radius:9999px;border:1px solid rgba(20,173,159,0.22);">
+            <span style="width:7px;height:7px;background:#14AD9F;border-radius:50%;display:inline-block;box-shadow:0 0 0 3px rgba(20,173,159,0.25);animation:ping 1.5s ease-out infinite;"></span>
+            Now Accepting New Clients
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="reveal reveal-delay-1" style="font-size:clamp(2.8rem,6.5vw,5.2rem);line-height:1.03;margin-bottom:20px;letter-spacing:-0.03em;">
+          Where Ideas<br/>
+          <span class="gradient-text">Take Shape.</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="reveal reveal-delay-2" style="font-size:clamp(1rem,2vw,1.15rem);max-width:540px;margin-bottom:36px;line-height:1.8;color:#475569;">
+          A global team of builders, designers, and engineers turning bold ideas into digital platforms, physical products, and intelligent systems — all under one roof.
+        </p>
+
+        <!-- CTAs -->
+        <div class="reveal reveal-delay-3" style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;">
+          <a href="contact.html" class="btn btn-primary" style="font-size:15px;">
+            Book Free Consultation <span class="iconify" data-icon="lucide:arrow-right"></span>
+          </a>
+          <a href="#services" class="btn btn-outline" style="font-size:15px;">
+            Explore Services
+          </a>
+        </div>
+
+        <!-- Social proof row -->
+        <div class="reveal" style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+          <!-- Avatar stack -->
+          <div style="display:flex;align-items:center;">
+            <div style="display:flex;">
+              <img src="image/team/oladele-emmanuel-founder-project-manager.jpg" alt="Oladele Emmanuel" style="width:36px;height:36px;border-radius:50%;border:2px solid #fff;object-fit:cover;margin-right:-10px;position:relative;z-index:5;" />
+              <img src="image/team/adeyanju-timileyin-3d-designer-visualization.jpg" alt="Adeyanju Timileyin" style="width:36px;height:36px;border-radius:50%;border:2px solid #fff;object-fit:cover;margin-right:-10px;position:relative;z-index:4;" />
+              <img src="image/team/oladeji-samuel-website-developer.jpg" alt="Oladeji Samuel" style="width:36px;height:36px;border-radius:50%;border:2px solid #fff;object-fit:cover;margin-right:-10px;position:relative;z-index:3;" />
+              <img src="image/team/mutiu-seleem-ai-automation-developer.jpg" alt="Mutiu Seleem" style="width:36px;height:36px;border-radius:50%;border:2px solid #fff;object-fit:cover;position:relative;z-index:2;" />
+            </div>
+            <div style="margin-left:14px;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;color:#0B1F3A;font-size:14px;">10+ Specialists</div>
+              <div style="font-size:12px;color:#94A3B8;">Ready to build with you</div>
+            </div>
+          </div>
+          <div style="width:1px;height:32px;background:#E2E8F0;"></div>
+          <div>
+            <div style="display:flex;gap:2px;margin-bottom:2px;">
+              <span style="color:#F59E0B;font-size:14px;">★★★★★</span>
+            </div>
+            <div style="font-size:12px;color:#94A3B8;font-family:'JetBrains Mono',monospace;">Global clients served</div>
+          </div>
+          <div style="width:1px;height:32px;background:#E2E8F0;"></div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#0B1F3A;font-size:14px;">🇳🇬 Ibadan, Nigeria</div>
+            <div style="font-size:12px;color:#94A3B8;font-family:'JetBrains Mono',monospace;">Serving worldwide</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Animated service pills -->
+      <div class="hero-split-right" style="padding-left:16px;">
+
+        <!-- Floating badge top-right -->
+        <div class="hero-badge" style="top:-20px;right:0px;z-index:10;display:flex;align-items:center;gap:10px;">
+          <span style="font-size:20px;">🏆</span>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#0B1F3A;font-size:13px;">End-to-End Team</div>
+            <div style="font-size:11px;color:#94A3B8;font-family:'JetBrains Mono',monospace;">Code → Design → Engineering</div>
+          </div>
+        </div>
+
+        <!-- Service pills -->
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:32px;">
+          <a href="services/website-development.html" class="service-pill reveal" style="text-decoration:none;">
+            <div class="pill-icon" style="background:rgba(19,90,166,0.1);">
+              <span class="iconify" data-icon="lucide:monitor" style="color:#135AA6;"></span>
+            </div>
+            <div class="pill-text">
+              <strong>Website Development</strong>
+              <span>Modern, responsive, high-converting sites</span>
+            </div>
+            <span class="iconify" data-icon="lucide:arrow-right" style="color:#CBD5E1;margin-left:auto;font-size:16px;"></span>
+          </a>
+
+          <a href="services/print-on-demand.html" class="service-pill reveal reveal-delay-1" style="text-decoration:none;">
+            <div class="pill-icon" style="background:rgba(20,173,159,0.1);">
+              <span class="iconify" data-icon="lucide:printer" style="color:#14AD9F;"></span>
+            </div>
+            <div class="pill-text">
+              <strong>Print-on-Demand</strong>
+              <span>Zakeke, Kickflip, Customily &amp; more</span>
+            </div>
+            <span class="iconify" data-icon="lucide:arrow-right" style="color:#CBD5E1;margin-left:auto;font-size:16px;"></span>
+          </a>
+
+          <a href="services/plastic-mold-design.html" class="service-pill reveal reveal-delay-2" style="text-decoration:none;">
+            <div class="pill-icon" style="background:rgba(11,31,58,0.07);">
+              <span class="iconify" data-icon="lucide:box" style="color:#0B1F3A;"></span>
+            </div>
+            <div class="pill-text">
+              <strong>Plastic Mold Design</strong>
+              <span>CAD modeling, DFM analysis &amp; more</span>
+            </div>
+            <span class="iconify" data-icon="lucide:arrow-right" style="color:#CBD5E1;margin-left:auto;font-size:16px;"></span>
+          </a>
+
+          <a href="services/architectural-visualization.html" class="service-pill reveal reveal-delay-3" style="text-decoration:none;">
+            <div class="pill-icon" style="background:linear-gradient(135deg,rgba(19,90,166,0.1),rgba(20,173,159,0.1));">
+              <span class="iconify" data-icon="lucide:building-2" style="color:#135AA6;"></span>
+            </div>
+            <div class="pill-text">
+              <strong>Architectural Visualization</strong>
+              <span>2D drawings, 3D renders &amp; walkthroughs</span>
+            </div>
+            <span class="iconify" data-icon="lucide:arrow-right" style="color:#CBD5E1;margin-left:auto;font-size:16px;"></span>
+          </a>
+
+          <a href="services/ai-automation.html" class="service-pill reveal" style="text-decoration:none;border-color:rgba(19,90,166,0.15);background:linear-gradient(135deg,rgba(11,31,58,0.04),rgba(19,90,166,0.04));">
+            <div class="pill-icon" style="background:linear-gradient(135deg,rgba(11,31,58,0.1),rgba(19,90,166,0.1));">
+              <span class="iconify" data-icon="lucide:cpu" style="color:#135AA6;"></span>
+            </div>
+            <div class="pill-text">
+              <strong>AI Development &amp; Automation</strong>
+              <span>Chatbots, workflows &amp; custom AI tools</span>
+            </div>
+            <span class="iconify" data-icon="lucide:arrow-right" style="color:#CBD5E1;margin-left:auto;font-size:16px;"></span>
+          </a>
+        </div>
+
+        <!-- Bottom floating badge -->
+        <div class="hero-badge hero-badge-2" style="bottom:-16px;left:16px;z-index:10;display:flex;align-items:center;gap:10px;">
+          <span style="width:36px;height:36px;background:linear-gradient(135deg,#135AA6,#14AD9F);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+            <span class="iconify" data-icon="lucide:globe" style="color:#fff;font-size:18px;"></span>
+          </span>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#0B1F3A;font-size:13px;">Worldwide Delivery</div>
+            <div style="font-size:11px;color:#94A3B8;font-family:'JetBrains Mono',monospace;">Remote-first, globally trusted</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Scrolling ticker at the bottom -->
+  <div class="hero-ticker">
+    <div class="ticker-track">
+      <!-- duplicated for seamless loop -->
+      <span class="ticker-item"><span class="dot"></span> Website Development</span>
+      <span class="ticker-item"><span class="dot"></span> Print-on-Demand</span>
+      <span class="ticker-item"><span class="dot"></span> Plastic Mold Design</span>
+      <span class="ticker-item"><span class="dot"></span> Architectural Visualization</span>
+      <span class="ticker-item"><span class="dot"></span> AI & Automation</span>
+      <span class="ticker-item"><span class="dot"></span> CAD Modeling</span>
+      <span class="ticker-item"><span class="dot"></span> Shopify Integration</span>
+      <span class="ticker-item"><span class="dot"></span> 3D Rendering</span>
+      <span class="ticker-item"><span class="dot"></span> Workflow Automation</span>
+      <span class="ticker-item"><span class="dot"></span> Custom Web Apps</span>
+      <!-- repeat -->
+      <span class="ticker-item"><span class="dot"></span> Website Development</span>
+      <span class="ticker-item"><span class="dot"></span> Print-on-Demand</span>
+      <span class="ticker-item"><span class="dot"></span> Plastic Mold Design</span>
+      <span class="ticker-item"><span class="dot"></span> Architectural Visualization</span>
+      <span class="ticker-item"><span class="dot"></span> AI & Automation</span>
+      <span class="ticker-item"><span class="dot"></span> CAD Modeling</span>
+      <span class="ticker-item"><span class="dot"></span> Shopify Integration</span>
+      <span class="ticker-item"><span class="dot"></span> 3D Rendering</span>
+      <span class="ticker-item"><span class="dot"></span> Workflow Automation</span>
+      <span class="ticker-item"><span class="dot"></span> Custom Web Apps</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="number">10+</div><div class="label">Team Members</div></div>
+      <div class="stat-item reveal reveal-delay-1"><div class="number">5</div><div class="label">Core Services</div></div>
+      <div class="stat-item reveal reveal-delay-2"><div class="number">Global</div><div class="label">Client Reach</div></div>
+      <div class="stat-item reveal reveal-delay-3"><div class="number">100%</div><div class="label">Client Focused</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHO WE ARE ===== -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <div class="grid-2" style="align-items:center;gap:64px;">
+      <div>
+        <span class="section-label reveal">Who We Are</span>
+        <h2 class="reveal reveal-delay-1" style="font-size:clamp(2rem,4vw,2.8rem);margin-bottom:20px;">Built at the intersection of code, design &amp; engineering.</h2>
+        <p class="reveal reveal-delay-2" style="margin-bottom:24px;">We're a team of builders, designers, and engineers working with clients around the world. We sit at the intersection of code, design, and engineering — building websites, print-on-demand stores, plastic mold designs, architectural visualizations, and AI-powered automation, all under one roof.</p>
+        <a href="about.html" class="btn btn-outline reveal reveal-delay-3">Learn More About Us <span class="iconify" data-icon="lucide:arrow-right"></span></a>
+      </div>
+      <div class="reveal reveal-delay-2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:linear-gradient(135deg,#135AA6,#14AD9F);border-radius:20px;padding:32px 24px;color:#fff;">
+          <span class="iconify" data-icon="lucide:globe" style="font-size:32px;margin-bottom:12px;display:block;"></span>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;margin-bottom:4px;">Global</div>
+          <div style="font-size:13px;opacity:0.85;">Serving clients worldwide</div>
+        </div>
+        <div style="background:#F7FAFC;border:1px solid rgba(19,90,166,0.1);border-radius:20px;padding:32px 24px;">
+          <span class="iconify" data-icon="lucide:users" style="font-size:32px;color:#14AD9F;margin-bottom:12px;display:block;"></span>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:#0B1F3A;margin-bottom:4px;">10+</div>
+          <div style="font-size:13px;color:#64748B;">Skilled professionals</div>
+        </div>
+        <div style="background:#F7FAFC;border:1px solid rgba(19,90,166,0.1);border-radius:20px;padding:32px 24px;">
+          <span class="iconify" data-icon="lucide:zap" style="font-size:32px;color:#135AA6;margin-bottom:12px;display:block;"></span>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:#0B1F3A;margin-bottom:4px;">5</div>
+          <div style="font-size:13px;color:#64748B;">Core service verticals</div>
+        </div>
+        <div style="background:#0B1F3A;border-radius:20px;padding:32px 24px;color:#fff;">
+          <span class="iconify" data-icon="lucide:map-pin" style="font-size:32px;color:#14AD9F;margin-bottom:12px;display:block;"></span>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:4px;">Ibadan, Nigeria</div>
+          <div style="font-size:13px;opacity:0.7;">Home base</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES SNAPSHOT ===== -->
+<section class="section" id="services">
+  <div class="container">
+    <div style="text-align:center;max-width:560px;margin:0 auto 56px;">
+      <span class="section-label reveal">What We Do</span>
+      <h2 class="reveal reveal-delay-1" style="font-size:clamp(2rem,4vw,2.8rem);margin-bottom:16px;">Everything your project needs — under one roof.</h2>
+      <p class="reveal reveal-delay-2">A full suite of digital and engineering services built to take your idea from concept to reality.</p>
+    </div>
+    <div class="grid-3" style="margin-bottom:48px;">
+      <!-- Card 1 -->
+      <div class="card service-card reveal">
+        <div class="icon-wrap" style="background:rgba(19,90,166,0.1);color:#135AA6;">
+          <span class="iconify" data-icon="lucide:monitor"></span>
+        </div>
+        <h3>Website Development</h3>
+        <p>Modern, responsive, and high-converting websites built to help your business grow — from simple landing pages to full web apps.</p>
+        <a href="services/website-development.html" class="card-link">Learn More <span class="iconify" data-icon="lucide:arrow-right"></span></a>
+      </div>
+      <!-- Card 2 -->
+      <div class="card service-card reveal reveal-delay-1">
+        <div class="icon-wrap" style="background:rgba(20,173,159,0.1);color:#14AD9F;">
+          <span class="iconify" data-icon="lucide:printer"></span>
+        </div>
+        <h3>Print-on-Demand Solutions</h3>
+        <p>Complete product personalization systems powered by Zakeke, Kickflip, Zepto, Customily, and other leading customization platforms.</p>
+        <a href="services/print-on-demand.html" class="card-link">Learn More <span class="iconify" data-icon="lucide:arrow-right"></span></a>
+      </div>
+      <!-- Card 3 -->
+      <div class="card service-card reveal reveal-delay-2">
+        <div class="icon-wrap" style="background:rgba(11,31,58,0.08);color:#0B1F3A;">
+          <span class="iconify" data-icon="lucide:box"></span>
+        </div>
+        <h3>Plastic Mold Design</h3>
+        <p>Professional CAD modeling and manufacturing-ready mold designs for industrial production — from concept to cavity.</p>
+        <a href="services/plastic-mold-design.html" class="card-link">Learn More <span class="iconify" data-icon="lucide:arrow-right"></span></a>
+      </div>
+      <!-- Card 4 -->
+      <div class="card service-card reveal">
+        <div class="icon-wrap" style="background:linear-gradient(135deg,rgba(19,90,166,0.1),rgba(20,173,159,0.1));color:#135AA6;">
+          <span class="iconify" data-icon="lucide:building-2"></span>
+        </div>
+        <h3>2D &amp; 3D Architectural Visualization</h3>
+        <p>Realistic architectural drawings, interior renders, exterior visualizations, and immersive 3D presentations.</p>
+        <a href="services/architectural-visualization.html" class="card-link">Learn More <span class="iconify" data-icon="lucide:arrow-right"></span></a>
+      </div>
+      <!-- Card 5 -->
+      <div class="card service-card reveal reveal-delay-1">
+        <div class="icon-wrap" style="background:linear-gradient(135deg,rgba(11,31,58,0.1),rgba(19,90,166,0.1));color:#135AA6;">
+          <span class="iconify" data-icon="lucide:cpu"></span>
+        </div>
+        <h3>AI Development &amp; Automation</h3>
+        <p>Custom AI solutions, intelligent automation, chatbots, workflow automation, and business process optimization.</p>
+        <a href="services/ai-automation.html" class="card-link">Learn More <span class="iconify" data-icon="lucide:arrow-right"></span></a>
+      </div>
+      <!-- Card 6 — CTA -->
+      <div class="reveal reveal-delay-2" style="background:linear-gradient(135deg,#135AA6,#14AD9F);border-radius:20px;padding:40px 36px;display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <h3 style="color:#fff;font-size:1.3rem;margin-bottom:12px;">Not sure which service fits?</h3>
+          <p style="color:rgba(255,255,255,0.8);font-size:14px;margin-bottom:24px;">Tell us about your project and we'll guide you to the right solution.</p>
+        </div>
+        <a href="contact.html" class="btn" style="background:#fff;color:#135AA6;align-self:flex-start;">Get Free Consultation <span class="iconify" data-icon="lucide:arrow-right"></span></a>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a href="contact.html" class="btn btn-outline">See All Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY CHOOSE US ===== -->
+<section class="section" style="background:#fff;">
+  <div class="container">
+    <div class="grid-2" style="align-items:center;gap:64px;">
+      <div>
+        <span class="section-label reveal">Why Techzolution</span>
+        <h2 class="reveal reveal-delay-1" style="font-size:clamp(2rem,4vw,2.8rem);margin-bottom:32px;">Built for builders who need more than a vendor.</h2>
+        <ul class="checklist">
+          <li class="reveal reveal-delay-1">Experienced Team of Professionals</li>
+          <li class="reveal reveal-delay-2">Innovative Technology Solutions</li>
+          <li class="reveal reveal-delay-3">Customer-Centered Approach</li>
+          <li class="reveal">Reliable Project Delivery</li>
+          <li class="reveal reveal-delay-1">Scalable Digital Solutions</li>
+          <li class="reveal reveal-delay-2">Long-Term Technical Support</li>
+        </ul>
+      </div>
+      <div>
+        <span class="section-label reveal">Industries We Serve</span>
+        <h3 class="reveal reveal-delay-1" style="font-size:1.4rem;margin-bottom:24px;">Across sectors, around the world.</h3>
+        <div class="industry-grid reveal reveal-delay-2">
+          <span class="industry-tag">Manufacturing</span>
+          <span class="industry-tag">Real Estate</span>
+          <span class="industry-tag">Interior Design</span>
+          <span class="industry-tag">Fashion Brands</span>
+          <span class="industry-tag">eCommerce</span>
+          <span class="industry-tag">Healthcare</span>
+          <span class="industry-tag">Education</span>
+          <span class="industry-tag">Startups</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<div class="cta-band">
+  <div class="container">
+    <span class="section-label reveal" style="color:rgba(255,255,255,0.7);border:none;background:rgba(255,255,255,0.1);padding:6px 16px;border-radius:9999px;">Ready to start?</span>
+    <h2 class="reveal reveal-delay-1">Ready to Build Something Amazing?</h2>
+    <p class="reveal reveal-delay-2">Let's transform your vision into a powerful digital solution.</p>
+    <div class="btn-wrap reveal reveal-delay-3">
+      <a href="contact.html" class="btn" style="background:#fff;color:#135AA6;">Book Your Free Consultation Today</a>
+      <a href="services/website-development.html" class="btn btn-outline-white">Explore Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:12px;display:inline-flex;">
+          <img src="image/techzolution-logo/techzolution-logo.png" alt="Techzolution" style="height:36px;filter:brightness(0) invert(1);opacity:0.9;" />
+        </a>
+        <p>A global team of builders, designers, and engineers turning bold ideas into digital platforms, physical products, and intelligent systems.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/website-development.html">Website Development</a></li>
+          <li><a href="services/print-on-demand.html">Print-on-Demand</a></li>
+          <li><a href="services/plastic-mold-design.html">Plastic Mold Design</a></li>
+          <li><a href="services/architectural-visualization.html">Architectural Viz</a></li>
+          <li><a href="services/ai-automation.html">AI & Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Meet the Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:Techzolution12@gmail.com">Techzolution12@gmail.com</a></li>
+          <li><a href="tel:+2347049324036">+234 704 932 4036</a></li>
+          <li><a href="tel:+2348161570549">+234 816 157 0549</a></li>
+          <li><span style="color:rgba(255,255,255,0.4);font-size:13px;">Mon – Fri, 9am – 4pm</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Techzolution. All rights reserved. · Based in Ibadan, Nigeria.</span>
+      <span>Built by <a href="#">Techzolution</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== FLOATING BUTTONS ===== -->
+<div class="floating-btns">
+  <a href="mailto:Techzolution12@gmail.com" class="float-btn float-btn-mail" aria-label="Email us">
+    <span class="float-tooltip">Email Us</span>
+    <span class="iconify" data-icon="lucide:mail" data-width="22"></span>
+  </a>
+  <a href="https://wa.me/2347049324036" target="_blank" rel="noopener" class="float-btn float-btn-wa" aria-label="Chat on WhatsApp">
+    <span class="ping"></span>
+    <span class="float-tooltip">WhatsApp</span>
+    <span class="iconify" data-icon="lucide:message-circle" data-width="22"></span>
+  </a>
+</div>
+
+<!-- ===== JS ===== -->
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Hamburger
+  const ham = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

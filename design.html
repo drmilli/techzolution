@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<script>
+try{if(window.parent&&window.parent!==window){window.parent.promotekit_referral="1fd2949a-d22c-431b-92bf-02d4ad04ee24";window.parent.document.cookie="promotekit_referral=1fd2949a-d22c-431b-92bf-02d4ad04ee24;path=/;domain=.aura.build;max-age=31536000"}}catch(e){}
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MZA AGENCY | Premium Digital Solutions</title>
+<!-- Fonts: Inter & Space Grotesk for Agency Feel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Icons -->
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+gold: {
+400: '#D4AF37',
+500: '#C5A028',
+600: '#B49020',
+},
+neutral: {
+850: '#1f1f1f',
+900: '#111111',
+925: '#0a0a0a',
+950: '#050505',
+}
+},
+fontFamily: {
+sans: ['Inter', 'sans-serif'],
+display: ['Space Grotesk', 'sans-serif'],
+},
+letterSpacing: {
+tighter: '-0.04em',
+tight: '-0.02em',
+},
+animation: {
+'blob': 'blob 7s infinite',
+'float': 'float 6s ease-in-out infinite',
+'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+'wiggle': 'wiggle 1s ease-in-out infinite',
+},
+keyframes: {
+blob: {
+'0%': { transform: 'translate(0px, 0px) scale(1)' },
+'33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+'66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+'100%': { transform: 'translate(0px, 0px) scale(1)' },
+},
+float: {
+'0%, 100%': { transform: 'translateY(0)' },
+'50%': { transform: 'translateY(-20px)' },
+},
+wiggle: {
+'0%, 100%': { transform: 'rotate(-3deg)' },
+'50%': { transform: 'rotate(3deg)' },
+}
+}
+}
+}
+}
+</script>
+<style>
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+/* Reveal on Scroll Animation Classes */
+.reveal {
+opacity: 0;
+transform: translateY(30px);
+transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+filter: blur(5px);
+}
+.reveal.active {
+opacity: 1;
+transform: translateY(0);
+filter: blur(0);
+}
+.stagger-1 { transition-delay: 100ms; }
+.stagger-2 { transition-delay: 200ms; }
+.stagger-3 { transition-delay: 300ms; }
+/* Hover Card Effects */
+.hover-card {
+transition: all 0.4s ease;
+}
+.hover-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.1);
+border-color: rgba(212, 175, 55, 0.3);
+}
+</style></head>
+<body class="bg-neutral-950 text-neutral-300 font-sans antialiased selection:bg-gold-400 selection:text-black overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-neutral-950/70 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-white text-black flex items-center justify-center font-bold text-xs rounded-lg group-hover:bg-gold-400 transition-colors">M</div>
+                <span class="text-lg font-semibold tracking-tighter text-white group-hover:text-gold-400 transition-colors duration-300 font-display">
+                    MZA AGENCY
+                </span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center gap-8 text-xs font-medium tracking-wide uppercase text-neutral-400">
+                <a href="#home" class="hover:text-gold-400 transition-colors">Home</a>
+                <a href="#about" class="hover:text-gold-400 transition-colors">About</a>
+                <a href="#services" class="hover:text-gold-400 transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-gold-400 transition-colors">Work</a>
+                <a href="#contact" class="hover:text-gold-400 transition-colors">Contact</a>
+                <a href="#contact" class="px-5 py-2 bg-white/5 border border-white/10 text-white rounded-full hover:bg-gold-400 hover:text-black hover:border-gold-400 transition-all duration-300">
+                    Get Quote
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-white hover:text-gold-400 transition-colors">
+                <span class="iconify" data-icon="lucide:menu" data-width="24"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Animated Background Blobs -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div class="absolute top-[-10%] left-[20%] w-96 h-96 bg-gold-400/10 rounded-full blur-[100px] animate-blob"></div>
+            <div class="absolute top-[40%] right-[10%] w-96 h-96 bg-purple-900/10 rounded-full blur-[100px] animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-[-10%] left-[30%] w-96 h-96 bg-blue-900/10 rounded-full blur-[100px] animate-blob animation-delay-4000"></div>
+            <!-- Grid Pattern -->
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <div class="reveal active inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/20 bg-gold-400/5 text-gold-400 text-xs font-medium uppercase tracking-wider mb-8 hover:bg-gold-400/10 transition-colors cursor-default">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-gold-400"></span>
+                </span>
+                Accepting New Clients
+            </div>
+            
+            <h1 class="reveal active stagger-1 font-display text-6xl md:text-8xl lg:text-9xl font-semibold text-white tracking-tighter leading-[0.9] mb-8">
+                MZA <span class="text-neutral-700">AGENCY</span>
+            </h1>
+            
+            <p class="reveal active stagger-2 text-lg md:text-xl text-neutral-400 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+                We are a digital powerhouse crafting immersive web experiences, high-performance e-commerce systems, and strategic brand identities.
+            </p>
+
+            <div class="reveal active stagger-3 flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="#contact" class="group relative px-8 py-4 bg-gold-400 text-black text-sm font-semibold rounded-full overflow-hidden transition-all duration-300 w-full sm:w-auto">
+                    <div class="absolute inset-0 w-0 bg-white transition-all duration-[250ms] ease-out group-hover:w-full opacity-20"></div>
+                    <span class="relative flex items-center justify-center gap-2">
+                        Start Project <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right"></span>
+                    </span>
+                </a>
+                <a href="#portfolio" class="px-8 py-4 bg-transparent border border-white/10 text-white text-sm font-medium rounded-full hover:bg-white/5 transition-all duration-300 w-full sm:w-auto backdrop-blur-sm">
+                    View Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="border-y border-white/5 bg-neutral-900/20 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/5">
+                <div class="reveal">
+                    <h3 class="text-3xl font-display font-medium text-white mb-1">500+</h3>
+                    <p class="text-xs text-neutral-500 uppercase tracking-widest">Projects</p>
+                </div>
+                <div class="reveal stagger-1">
+                    <h3 class="text-3xl font-display font-medium text-white mb-1">98%</h3>
+                    <p class="text-xs text-neutral-500 uppercase tracking-widest">Success Rate</p>
+                </div>
+                <div class="reveal stagger-2">
+                    <h3 class="text-3xl font-display font-medium text-white mb-1">24/7</h3>
+                    <p class="text-xs text-neutral-500 uppercase tracking-widest">Support</p>
+                </div>
+                <div class="reveal stagger-3">
+                    <h3 class="text-3xl font-display font-medium text-white mb-1">Global</h3>
+                    <p class="text-xs text-neutral-500 uppercase tracking-widest">Client Base</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6 reveal">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-display font-semibold text-white tracking-tighter mb-4">Our Expertise</h2>
+                    <p class="text-neutral-500 max-w-md text-lg font-light">Comprehensive digital services designed for growth and impact.</p>
+                </div>
+                <div class="h-[1px] flex-1 bg-white/10 mx-8 hidden md:block mb-4"></div>
+                <a href="#contact" class="text-gold-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium">
+                    Discuss Requirements <span class="iconify" data-icon="lucide:arrow-up-right"></span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service Cards (Same as before) -->
+                <div class="reveal hover-card p-10 rounded-2xl bg-neutral-900/50 border border-white/5 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gold-400/5 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:bg-gold-400/10"></div>
+                    <div class="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform duration-300 border border-white/5">
+                        <span class="iconify" data-icon="lucide:layout-template" data-width="28"></span>
+                    </div>
+                    <h3 class="text-xl font-display font-medium text-white mb-4">Web Design & UI/UX</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Bespoke digital environments tailored to your brand's narrative. We focus on conversion-driven layouts.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="reveal stagger-1 hover-card p-10 rounded-2xl bg-neutral-900/50 border border-white/5 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:bg-blue-500/10"></div>
+                    <div class="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform duration-300 border border-white/5">
+                        <span class="iconify" data-icon="lucide:shopping-bag" data-width="28"></span>
+                    </div>
+                    <h3 class="text-xl font-display font-medium text-white mb-4">E-Commerce & Shopify</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        High-converting stores with seamless checkout experiences. Custom Shopify solutions.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="reveal stagger-2 hover-card p-10 rounded-2xl bg-neutral-900/50 border border-white/5 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:bg-purple-500/10"></div>
+                    <div class="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform duration-300 border border-white/5">
+                        <span class="iconify" data-icon="lucide:fingerprint" data-width="28"></span>
+                    </div>
+                    <h3 class="text-xl font-display font-medium text-white mb-4">Branding & Identity</h3>
+                    <p class="text-sm text-neutral-400 leading-relaxed">
+                        Strategic visual identities that separate you from the noise. Logo design and typography systems.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Work -->
+    <section id="portfolio" class="py-32 border-t border-white/5 bg-neutral-900/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="reveal text-4xl md:text-5xl font-display font-semibold text-white tracking-tighter mb-16 text-center">Selected Works</h2>
+
+            <div class="space-y-32">
+                <!-- Project 1 -->
+                <div class="reveal group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="relative rounded-2xl overflow-hidden aspect-video border border-white/5 bg-neutral-800">
+                        <div class="absolute inset-0 bg-neutral-900/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="space-y-6">
+                        <div class="text-gold-400 text-xs font-bold tracking-widest uppercase mb-2">Finance</div>
+                        <h3 class="text-3xl font-display font-medium text-white">Vanguard Capital</h3>
+                        <p class="text-neutral-400 font-light leading-relaxed">
+                            A complete rebranding and digital overhaul for a leading venture capital firm. We focused on trust.
+                        </p>
+                        <div class="flex gap-3 pt-4">
+                            <span class="px-3 py-1 bg-white/5 text-neutral-400 text-xs rounded-full border border-white/5">UI/UX</span>
+                            <span class="px-3 py-1 bg-white/5 text-neutral-400 text-xs rounded-full border border-white/5">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 (Reverse) -->
+                <div class="reveal group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="lg:order-2 relative rounded-2xl overflow-hidden aspect-video border border-white/5 bg-neutral-800">
+                        <div class="absolute inset-0 bg-neutral-900/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Project" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="lg:order-1 space-y-6 lg:text-right">
+                        <div class="text-gold-400 text-xs font-bold tracking-widest uppercase mb-2 flex lg:justify-end">E-Commerce</div>
+                        <h3 class="text-3xl font-display font-medium text-white">Noir Apparel</h3>
+                        <p class="text-neutral-400 font-light leading-relaxed">
+                            A high-end streetwear Shopify store designed for drop-culture.
+                        </p>
+                        <div class="flex gap-3 pt-4 lg:justify-end">
+                            <span class="px-3 py-1 bg-white/5 text-neutral-400 text-xs rounded-full border border-white/5">Shopify</span>
+                            <span class="px-3 py-1 bg-white/5 text-neutral-400 text-xs rounded-full border border-white/5">Liquid</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us / About -->
+    <section id="about" class="py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-neutral-950 via-neutral-900/40 to-neutral-950"></div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h2 class="reveal text-3xl md:text-5xl font-display font-semibold text-white tracking-tight mb-8">
+                Precision. Luxury. <span class="text-gold-400">Performance.</span>
+            </h2>
+            <p class="reveal stagger-1 text-lg text-neutral-400 font-light leading-relaxed mb-12">
+                At MZA Agency, we don't just build websites; we craft digital legacies. Our approach is rooted in a deep understanding of luxury aesthetics.
+            </p>
+            
+            <div class="reveal stagger-2 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <div class="p-6 rounded-xl bg-neutral-900 border border-white/5 hover:border-gold-400/30 transition-colors">
+                    <span class="iconify text-gold-400 mb-4" data-icon="lucide:zap" data-width="24"></span>
+                    <h4 class="text-white font-medium mb-2">Fast Turnaround</h4>
+                    <p class="text-sm text-neutral-500">Rapid deployment without compromising quality.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-neutral-900 border border-white/5 hover:border-gold-400/30 transition-colors">
+                    <span class="iconify text-gold-400 mb-4" data-icon="lucide:shield-check" data-width="24"></span>
+                    <h4 class="text-white font-medium mb-2">Transparent Policies</h4>
+                    <p class="text-sm text-neutral-500">Clear billing. 40% retention on cancellation.</p>
+                </div>
+                <div class="p-6 rounded-xl bg-neutral-900 border border-white/5 hover:border-gold-400/30 transition-colors">
+                    <span class="iconify text-gold-400 mb-4" data-icon="lucide:globe" data-width="24"></span>
+                    <h4 class="text-white font-medium mb-2">Global Standards</h4>
+                    <p class="text-sm text-neutral-500">International quality code and design standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 border-t border-white/5 bg-neutral-925 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+             <div class="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-gold-400/5 to-transparent"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+            <h2 class="reveal text-4xl md:text-5xl font-display font-semibold text-white tracking-tighter mb-6">Let's Build Something Great</h2>
+            <p class="reveal stagger-1 text-neutral-400 mb-12 font-light text-lg">
+                Ready to elevate your digital presence? Reach out directly via email or WhatsApp.
+            </p>
+
+            <div class="reveal stagger-2 space-y-4">
+                <div class="p-8 bg-neutral-900/80 backdrop-blur-md border border-white/10 rounded-2xl hover:border-gold-400/30 transition-all duration-300 group">
+                    <span class="block text-xs text-gold-400 uppercase tracking-widest mb-3">Email Us</span>
+                    <a href="mailto:muhammadzeeshanabbas324@gmail.com" class="text-xl md:text-3xl font-medium text-white group-hover:text-gold-400 transition-colors break-all">
+                        muhammadzeeshanabbas324@gmail.com
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                     <a href="mailto:muhammadzeeshanabbas324@gmail.com" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black text-sm font-semibold rounded-full hover:bg-neutral-200 transition-all w-full md:w-auto">
+                        <span class="iconify" data-icon="lucide:mail" data-width="18"></span>
+                        Send Email
+                    </a>
+                    <a href="https://wa.me/923185201248" target="_blank" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] text-white text-sm font-semibold rounded-full hover:bg-[#20bd5a] transition-all w-full md:w-auto">
+                        <span class="iconify" data-icon="lucide:message-circle" data-width="18"></span>
+                        Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10 bg-neutral-950 text-center">
+        <div class="flex flex-col items-center gap-6">
+            <a href="#" class="text-xl font-bold tracking-tighter text-white font-display">MZA AGENCY</a>
+            <p class="text-neutral-600 text-xs tracking-wide">
+                &copy; 2024 MZA Agency. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- HIGHLY ANIMATED FLOATING SIDE BUTTONS (WHATSAPP & EMAIL) -->
+    <div class="fixed bottom-6 right-6 z-[100] flex flex-col gap-4 items-end">
+        
+        <!-- Email Floating Button -->
+        <a href="mailto:muhammadzeeshanabbas324@gmail.com" class="group relative flex items-center justify-center w-14 h-14 bg-neutral-800 text-white rounded-full border border-white/10 shadow-lg hover:bg-gold-400 hover:text-black hover:scale-110 transition-all duration-300">
+            <!-- Tooltip (Slides in from right) -->
+            <span class="absolute right-16 bg-white text-black text-xs font-bold px-3 py-2 rounded-lg opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 whitespace-nowrap shadow-xl flex items-center gap-2">
+                Send Email
+                <!-- Arrow tooltip -->
+                <div class="absolute top-1/2 -right-1 -mt-1 w-2 h-2 bg-white rotate-45"></div>
+            </span>
+            <span class="iconify" data-icon="lucide:mail" data-width="24"></span>
+        </a>
+
+        <!-- WhatsApp Floating Button (Pulse Effect) -->
+        <a href="https://wa.me/923185201248" target="_blank" class="group relative flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_0_20px_rgba(37,211,102,0.4)] hover:shadow-[0_0_30px_rgba(37,211,102,0.6)] hover:scale-110 transition-all duration-300">
+            <!-- Ping Animation (Ripple) -->
+            <span class="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping"></span>
+            
+            <!-- Tooltip (Slides in from right) -->
+            <span class="absolute right-16 bg-white text-black text-xs font-bold px-3 py-2 rounded-lg opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 whitespace-nowrap shadow-xl flex items-center gap-2">
+                Chat on WhatsApp
+                <!-- Arrow tooltip -->
+                <div class="absolute top-1/2 -right-1 -mt-1 w-2 h-2 bg-white rotate-45"></div>
+            </span>
+            
+            <!-- Icon -->
+            <span class="iconify relative z-10" data-icon="lucide:message-circle" data-width="26"></span>
+            
+            <!-- Notification Dot -->
+            <span class="absolute top-0 right-0 z-20 w-3.5 h-3.5 bg-red-500 border-2 border-neutral-900 rounded-full"></span>
+        </a>
+
+    </div>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-neutral-950/90', 'shadow-lg');
+                nav.classList.remove('bg-neutral-950/70');
+            } else {
+                nav.classList.remove('bg-neutral-950/90', 'shadow-lg');
+                nav.classList.add('bg-neutral-950/70');
+            }
+        });
+    </script>
+</body>
+</html>
