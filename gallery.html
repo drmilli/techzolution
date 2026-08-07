@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Techzolution Portfolio of Work</title>
+  <meta name="description" content="Explore Techzolution's portfolio of architectural visualizations, interior designs, plastic mold designs, and more creative projects." />
+  <link rel="icon" type="image/png" href="image/techzolution-logo/techzolution-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .gallery-hero {
+      padding: 160px 0 100px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0B1F3A 0%, #135AA6 50%, #14AD9F 100%);
+    }
+    .gallery-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 50%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 50%, transparent 100%);
+    }
+    .gallery-hero .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.2;
+    }
+    .gallery-hero .hero-blob-1 {
+      width: 500px; height: 500px;
+      background: #FF6B4A;
+      top: -10%; right: -5%;
+      animation: blobFloat 10s ease-in-out infinite;
+    }
+    .gallery-hero .hero-blob-2 {
+      width: 400px; height: 400px;
+      background: #14AD9F;
+      bottom: -20%; left: -5%;
+      animation: blobFloat 12s ease-in-out infinite;
+      animation-delay: -4s;
+    }
+    .gallery-hero-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .gallery-hero .section-label {
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 6px 16px;
+      border-radius: 9999px;
+    }
+    .gallery-hero h1 {
+      color: #fff;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      line-height: 1.05;
+    }
+    .gallery-hero h1 span {
+      background: linear-gradient(135deg, #FF6B4A, #FFD166);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gallery-hero p {
+      color: rgba(255,255,255,0.8);
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      line-height: 1.8;
+      max-width: 620px;
+      margin: 0 auto 36px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat .num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat .lbl {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .filter-bar {
+      background: #fff;
+      border-bottom: 1px solid rgba(19,90,166,0.08);
+      position: sticky;
+      top: 100px;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .filter-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .filter-inner::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      flex-shrink: 0;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      background: #F7FAFC;
+      border: 1px solid rgba(19,90,166,0.1);
+      color: #64748B;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .filter-btn:hover {
+      background: rgba(19,90,166,0.06);
+      color: #135AA6;
+      border-color: rgba(19,90,166,0.2);
+    }
+    .filter-btn.active {
+      background: linear-gradient(135deg, #135AA6, #14AD9F);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 16px rgba(19,90,166,0.3);
+    }
+    .filter-btn .count {
+      background: rgba(255,255,255,0.2);
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .filter-btn:not(.active) .count {
+      background: rgba(19,90,166,0.08);
+      color: #135AA6;
+    }
+
+    .gallery-section {
+      padding: 80px 0;
+      position: relative;
+    }
+    .gallery-section:nth-child(even) {
+      background: #fff;
+    }
+    .section-head {
+      max-width: 1200px;
+      margin: 0 auto 48px;
+      padding: 0 24px;
+    }
+    .section-head-inner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .section-head-left {
+      flex: 1;
+      min-width: 280px;
+    }
+    .section-category-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      margin-bottom: 14px;
+    }
+    .tag-archviz {
+      background: linear-gradient(135deg, rgba(19,90,166,0.1), rgba(20,173,159,0.1));
+      color: #135AA6;
+      border: 1px solid rgba(19,90,166,0.2);
+    }
+    .tag-interior {
+      background: rgba(20,173,159,0.1);
+      color: #14AD9F;
+      border: 1px solid rgba(20,173,159,0.2);
+    }
+    .tag-exterior {
+      background: rgba(19,90,166,0.08);
+      color: #135AA6;
+      border: 1px solid rgba(19,90,166,0.18);
+    }
+    .tag-mold {
+      background: rgba(11,31,58,0.06);
+      color: #0B1F3A;
+      border: 1px solid rgba(11,31,58,0.15);
+    }
+    .tag-carwash {
+      background: rgba(255,107,74,0.1);
+      color: #FF6B4A;
+      border: 1px solid rgba(255,107,74,0.2);
+    }
+    .tag-cabin {
+      background: rgba(19,90,166,0.08);
+      color: #135AA6;
+      border: 1px solid rgba(19,90,166,0.18);
+    }
+    .tag-glass {
+      background: linear-gradient(135deg, rgba(20,173,159,0.1), rgba(19,90,166,0.1));
+      color: #14AD9F;
+      border: 1px solid rgba(20,173,159,0.2);
+    }
+    .tag-baseball {
+      background: rgba(255,107,74,0.08);
+      color: #FF6B4A;
+      border: 1px solid rgba(255,107,74,0.18);
+    }
+    .section-head h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      color: #0B1F3A;
+    }
+    .section-head p {
+      font-size: 15px;
+      color: #64748B;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+    .section-meta {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .meta-item {
+      text-align: right;
+    }
+    .meta-item .m-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #135AA6, #14AD9F);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .meta-item .m-lbl {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #94A3B8;
+    }
+
+    .masonry-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      columns: 3;
+      column-gap: 20px;
+    }
+    @media (max-width: 1024px) {
+      .masonry-grid { columns: 2; }
+    }
+    @media (max-width: 640px) {
+      .masonry-grid { columns: 1; }
+    }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 20px;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      group: true;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,31,58,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 1;
+    }
+    .gallery-item:hover::before { opacity: 1; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      color: #fff;
+      z-index: 2;
+      transform: translateY(12px);
+      opacity: 0;
+      transition: all 0.35s ease;
+    }
+    .gallery-item:hover .gallery-overlay {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .gallery-overlay .icon-circle {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .gallery-overlay h4 {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .gallery-overlay span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      opacity: 0.8;
+      letter-spacing: 0.05em;
+    }
+
+    .divider-wave {
+      position: relative;
+      height: 60px;
+      overflow: hidden;
+    }
+    .divider-wave svg {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(11,31,58,0.96);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(8px);
+    }
+    .lightbox.open {
+      display: flex;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      animation: zoomIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .lightbox-content img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+      display: block;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+    .lightbox-close:hover {
+      background: #FF6B4A;
+      border-color: #FF6B4A;
+      transform: rotate(90deg);
+    }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+    .lightbox-nav:hover {
+      background: #135AA6;
+      border-color: #135AA6;
+    }
+    .lightbox-prev { left: 24px; }
+    .lightbox-next { right: 24px; }
+    .lightbox-caption {
+      position: absolute;
+      bottom: -52px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .gallery-cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #0B1F3A 0%, #135AA6 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .gallery-cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .gallery-cta-inner h2 {
+      color: #fff;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      margin-bottom: 16px;
+    }
+    .gallery-cta-inner p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+    .gallery-cta-inner .btn-wrap {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 96px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #fff;
+      color: #135AA6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(19,90,166,0.2);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(19,90,166,0.1);
+    }
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .scroll-top-btn:hover {
+      background: linear-gradient(135deg, #135AA6, #14AD9F);
+      color: #fff;
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="image/techzolution-logo/techzolution-logo.png" alt="Techzolution Logo" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Services ▾</a>
+        <div class="nav-dropdown-menu">
+          <a href="services/website-development.html"><span class="dot" style="background:#135AA6"></span>Website Development</a>
+          <a href="services/print-on-demand.html"><span class="dot" style="background:#14AD9F"></span>Print-on-Demand</a>
+          <a href="services/plastic-mold-design.html"><span class="dot" style="background:#0B1F3A"></span>Plastic Mold Design</a>
+          <a href="services/architectural-visualization.html"><span class="dot" style="background:linear-gradient(135deg,#135AA6,#14AD9F)"></span>Architectural Visualization</a>
+          <a href="services/ai-automation.html"><span class="dot" style="background:linear-gradient(135deg,#0B1F3A,#135AA6)"></span>AI Development &amp; Automation</a>
+        </div>
+      </li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta" style="padding:10px 24px;font-size:14px;">Book a Consultation</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <span class="mobile-service-label">Services</span>
+    <a href="services/website-development.html" style="padding-left:16px;font-size:14px;">Website Development</a>
+    <a href="services/print-on-demand.html" style="padding-left:16px;font-size:14px;">Print-on-Demand</a>
+    <a href="services/plastic-mold-design.html" style="padding-left:16px;font-size:14px;">Plastic Mold Design</a>
+    <a href="services/architectural-visualization.html" style="padding-left:16px;font-size:14px;">Architectural Visualization</a>
+    <a href="services/ai-automation.html" style="padding-left:16px;font-size:14px;">AI Development &amp; Automation</a>
+    <a href="about.html">About</a>
+    <a href="team.html">Team</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn-primary" style="margin-top:8px;justify-content:center;">Book a Consultation</a>
+  </div>
+</nav>
+
+<!-- ===== GALLERY HERO ===== -->
+<section class="gallery-hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="gallery-hero-inner container">
+    <span class="section-label reveal">Our Portfolio</span>
+    <h1 class="reveal reveal-delay-1">Where Vision Meets <span>Visualization.</span></h1>
+    <p class="reveal reveal-delay-2">A curated collection of our finest work — from stunning architectural renders and interior spaces to precision plastic mold engineering. Explore how we bring ideas to life.</p>
+    
+  </div>
+</section>
+
+<!-- ===== FILTER BAR ===== -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" data-filter="all">
+      <span class="iconify" data-icon="lucide:layout-grid"></span> All Projects <span class="count">52</span>
+    </button>
+    <button class="filter-btn" data-filter="interior">
+      <span class="iconify" data-icon="lucide:sofa"></span> Interior Design <span class="count">11</span>
+    </button>
+    <button class="filter-btn" data-filter="exterior">
+      <span class="iconify" data-icon="lucide:building-2"></span> Exterior Design <span class="count">12</span>
+    </button>
+    <button class="filter-btn" data-filter="cabin">
+      <span class="iconify" data-icon="lucide:home"></span> Cabin House <span class="count">5</span>
+    </button>
+    <button class="filter-btn" data-filter="carwash">
+      <span class="iconify" data-icon="lucide:car"></span> Car Wash Design <span class="count">6</span>
+    </button>
+    <button class="filter-btn" data-filter="glass">
+      <span class="iconify" data-icon="lucide:layers"></span> Glass Aose <span class="count">4</span>
+    </button>
+    <button class="filter-btn" data-filter="mold">
+      <span class="iconify" data-icon="lucide:box"></span> Plastic Mold <span class="count">10</span>
+    </button>
+    <button class="filter-btn" data-filter="baseball">
+      <span class="iconify" data-icon="lucide:trophy"></span> Baseball <span class="count">4</span>
+    </button>
+  </div>
+</div>
+
+<!-- ===== SECTION 1: INTERIOR DESIGN ===== -->
+<section class="gallery-section" id="interior" data-section="interior">
+  <div class="section-head">
+    <div class="section-head-inner reveal">
+      <div class="section-head-left">
+        <span class="section-category-tag tag-interior">
+          <span class="iconify" data-icon="lucide:sofa"></span> Interior Design
+        </span>
+        <h2>Interior Design Visualizations</h2>
+        <p>Photorealistic interior renderings that capture every detail — from ambient lighting and material textures to carefully curated furniture layouts. Spaces that feel lived-in before they're built.</p>
+      </div>
+      <div class="section-meta">
+        <div class="meta-item"><div class="m-num">11</div><div class="m-lbl">Renders</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="masonry-grid">
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20001.jpg" alt="Interior Render 1" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Living Space Concept</h4><span>Interior Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20002.jpg" alt="Interior Render 2" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Modern Kitchen</h4><span>Interior Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20003.jpg" alt="Interior Render 3" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Luxury Bedroom</h4><span>Interior Visualization</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20004.jpg" alt="Interior Render 4" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Open-Plan Living</h4><span>Interior Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20005.jpg" alt="Interior Render 5" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Office Workspace</h4><span>Interior Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20006.jpg" alt="Interior Render 6" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Dining Area</h4><span>Interior Visualization</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20007.jpg" alt="Interior Render 7" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Bathroom Design</h4><span>Interior Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20008.jpg" alt="Interior Render 8" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Master Suite</h4><span>Interior Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20009.jpg" alt="Interior Render 9" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Minimalist Living</h4><span>Interior Visualization</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20010.jpg" alt="Interior Render 10" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Studio Apartment</h4><span>Interior Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Interior%20design/Interior%20rendering%20011.jpg" alt="Interior Render 11" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Commercial Interior</h4><span>Interior Visualization</span></div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: EXTERIOR DESIGN ===== -->
+<section class="gallery-section" id="exterior" data-section="exterior">
+  <div class="section-head">
+    <div class="section-head-inner reveal">
+      <div class="section-head-left">
+        <span class="section-category-tag tag-exterior">
+          <span class="iconify" data-icon="lucide:building-2"></span> Exterior Design
+        </span>
+        <h2>Exterior &amp; Architectural Visualizations</h2>
+        <p>Hospital designs, residential facades, and commercial exterior renderings. We craft exteriors that balance form, function, and context — bringing architectural blueprints to vivid life.</p>
+      </div>
+      <div class="section-meta">
+        <div class="meta-item"><div class="m-num">12</div><div class="m-lbl">Renders</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="masonry-grid">
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20design.jpg" alt="Exterior Design" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Residential Facade</h4><span>Exterior Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20image%20hospital%2010.jpg" alt="Hospital Exterior 10" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Hospital Wing View</h4><span>Healthcare Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20image%20hospital%202.jpg" alt="Hospital Exterior 2" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Modern Hospital</h4><span>Healthcare Design</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20image%20hospital%204%20(1).jpg" alt="Hospital Exterior 4b" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Hospital Aerial View</h4><span>Healthcare Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20image%20hospital%204.jpg" alt="Hospital Exterior 4" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Hospital Entrance</h4><span>Healthcare Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20image%20hospital%205.jpg" alt="Hospital Exterior 5" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Site Context View</h4><span>Healthcare Design</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20image%20hospital%206.jpg" alt="Hospital Exterior 6" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Hospital Night View</h4><span>Healthcare Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20image%20hospital%207.jpg" alt="Hospital Exterior 7" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Courtyard Design</h4><span>Healthcare Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20image%20hospital%208.jpg" alt="Hospital Exterior 8" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Street Elevation</h4><span>Healthcare Design</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20image%20hospital%209.jpg" alt="Hospital Exterior 9" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Landscape Integration</h4><span>Healthcare Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20rendering%20001.jpg" alt="Exterior Render 1" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Commercial Building</h4><span>Exterior Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Exterior%20design/Exterior%20rendering.jpg" alt="Exterior Render 2" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Urban Residential</h4><span>Exterior Visualization</span></div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: CABIN HOUSE ===== -->
+<section class="gallery-section" id="cabin" data-section="cabin">
+  <div class="section-head">
+    <div class="section-head-inner reveal">
+      <div class="section-head-left">
+        <span class="section-category-tag tag-cabin">
+          <span class="iconify" data-icon="lucide:home"></span> Cabin House
+        </span>
+        <h2>Cabin House — Rustic Retreat Design</h2>
+        <p>A cozy cabin house concept blending natural wood textures with modern architectural sensibility. Perfect for a mountain getaway or forest retreat — warm, inviting, and deeply connected to nature.</p>
+      </div>
+      <div class="section-meta">
+        <div class="meta-item"><div class="m-num">5</div><div class="m-lbl">Renders</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="masonry-grid">
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Cabin%20House/C.jpg" alt="Cabin House C" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Front Elevation</h4><span>Cabin House Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Cabin%20House/YM8kDFjm.jpeg" alt="Cabin House YM8kDFjm" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Woodland Setting</h4><span>Cabin House Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Cabin%20House/ZDpMLZKR.jpeg" alt="Cabin House ZDpMLZKR" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Porch &amp; Deck</h4><span>Cabin House Design</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Cabin%20House/bUNzhGJp.jpeg" alt="Cabin House bUNzhGJp" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Aerial Perspective</h4><span>Cabin House Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Cabin%20House/vOQA-JIA.jpeg" alt="Cabin House vOQA-JIA" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Sunset View</h4><span>Cabin House Design</span></div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: CAR WASH ===== -->
+<section class="gallery-section" id="carwash" data-section="carwash">
+  <div class="section-head">
+    <div class="section-head-inner reveal">
+      <div class="section-head-left">
+        <span class="section-category-tag tag-carwash">
+          <span class="iconify" data-icon="lucide:car-wash"></span> Car Wash Design
+        </span>
+        <h2>Car Wash &amp; Auto Care Facility</h2>
+        <p>Commercial car wash and maintenance facility designs. From the 'Big Wheels' branded concept to CGI maintenance and wash bays — functional layouts paired with striking visual identity.</p>
+      </div>
+      <div class="section-meta">
+        <div class="meta-item"><div class="m-num">6</div><div class="m-lbl">Renders</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="masonry-grid">
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Car%20wash%20design/Big%20wheels%20design.jpg" alt="Big Wheels Design" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Big Wheels — Front View</h4><span>Car Wash Facility</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Car%20wash%20design/Big%20wheels%20design%202.jpg" alt="Big Wheels Design 2" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Service Bays</h4><span>Car Wash Facility</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Car%20wash%20design/Big%20wheels%20design%203.jpg" alt="Big Wheels Design 3" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Interior Bay Layout</h4><span>Car Wash Facility</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Car%20wash%20design/Big%20wheels%20design%204.jpg" alt="Big Wheels Design 4" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Night Scene</h4><span>Car Wash Facility</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Car%20wash%20design/CGI%20Car%20maintainance.jpg" alt="CGI Car Maintenance" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>CGI Maintenance Bay</h4><span>Car Wash Facility</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Car%20wash%20design/CGI%20Car%20wash.jpg" alt="CGI Car Wash" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>CGI Wash Tunnel</h4><span>Car Wash Facility</span></div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: GLASS AOSE ===== -->
+<section class="gallery-section" id="glass" data-section="glass">
+  <div class="section-head">
+    <div class="section-head-inner reveal">
+      <div class="section-head-left">
+        <span class="section-category-tag tag-glass">
+          <span class="iconify" data-icon="lucide:layers"></span> Glass Aose
+        </span>
+        <h2>Glass Aose — Contemporary Facade Study</h2>
+        <p>A multi-view study of a glass facade concept. Exploring transparency, reflection, and structural expression through carefully rendered perspectives and detail views.</p>
+      </div>
+      <div class="section-meta">
+        <div class="meta-item"><div class="m-num">4</div><div class="m-lbl">Renders</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="masonry-grid">
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Glass%20Aose/v5.jpg" alt="Glass Aose v5" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Glass Facade — View 5</h4><span>Glass Aose Study</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/Glass%20Aose/v6.jpg" alt="Glass Aose v6" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Glass Facade — View 6</h4><span>Glass Aose Study</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/Glass%20Aose/VIEW%202_2.jpg" alt="Glass Aose View 2" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Perspective View 2</h4><span>Glass Aose Study</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/Glass%20Aose/VIEW%203_2.jpg" alt="Glass Aose View 3" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Perspective View 3</h4><span>Glass Aose Study</span></div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: PLASTIC MOLD ===== -->
+<section class="gallery-section" id="mold" data-section="mold">
+  <div class="section-head">
+    <div class="section-head-inner reveal">
+      <div class="section-head-left">
+        <span class="section-category-tag tag-mold">
+          <span class="iconify" data-icon="lucide:box"></span> Plastic Mold Design
+        </span>
+        <h2>Plastic Mold — CAD Engineering &amp; Prototyping</h2>
+        <p>Precision plastic mold designs from concept through to manufacturing-ready files. CAD screenshots, technical renders, and detailed views showcasing DFM analysis, cavity design, and final product renders.</p>
+      </div>
+      <div class="section-meta">
+        <div class="meta-item"><div class="m-num">10</div><div class="m-lbl">Renders</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="masonry-grid">
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/PLASTIC%20MOLD/Render.jpg" alt="Mold Render" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Final Product Render</h4><span>Plastic Mold Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/PLASTIC%20MOLD/Screenshot%20(2672).png" alt="Mold Screenshot 2672" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>CAD Assembly View</h4><span>Plastic Mold Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/PLASTIC%20MOLD/Screenshot%20(2673).png" alt="Mold Screenshot 2673" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>CAD Detail Work</h4><span>Plastic Mold Design</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/PLASTIC%20MOLD/Screenshot%202025-12-05%20014503.png" alt="Mold Screenshot 2025-12-05" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Design Session — 01</h4><span>Plastic Mold Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/PLASTIC%20MOLD/Screenshot%202026-07-10%20131844.png" alt="Mold Screenshot 2026-07-10 131844" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Cavity Design View</h4><span>Plastic Mold Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/PLASTIC%20MOLD/Screenshot%202026-07-10%20132254.png" alt="Mold Screenshot 2026-07-10 132254" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Core &amp; Cavity Split</h4><span>Plastic Mold Design</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/PLASTIC%20MOLD/Screenshot%202026-07-10%20132325.png" alt="Mold Screenshot 2026-07-10 132325" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Ejection System</h4><span>Plastic Mold Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/PLASTIC%20MOLD/Screenshot%202026-07-10%20132356.png" alt="Mold Screenshot 2026-07-10 132356" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Cooling Channels</h4><span>Plastic Mold Design</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/PLASTIC%20MOLD/image-2.png" alt="Mold Image 2" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Exploded View</h4><span>Plastic Mold Design</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/PLASTIC%20MOLD/image.png" alt="Mold Image" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Part Draft Analysis</h4><span>Plastic Mold Design</span></div></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 7: BASEBALL ===== -->
+<section class="gallery-section" id="baseball" data-section="baseball">
+  <div class="section-head">
+    <div class="section-head-inner reveal">
+      <div class="section-head-left">
+        <span class="section-category-tag tag-baseball">
+          <span class="iconify" data-icon="lucide:trophy"></span> Baseball
+        </span>
+        <h2>Baseball — Product &amp; Concept Visualizations</h2>
+        <p>Sports-themed visualizations featuring baseball equipment and product concepts. Dynamic compositions with studio lighting to showcase material qualities and product details.</p>
+      </div>
+      <div class="section-meta">
+        <div class="meta-item"><div class="m-num">4</div><div class="m-lbl">Renders</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="masonry-grid">
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/baseball/AA.jpg" alt="Baseball AA" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Baseball Equipment — Shot A</h4><span>Product Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-1" onclick="openLightbox(this)"><img src="image/gallery/baseball/B.jpeg" alt="Baseball B" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Baseball Equipment — Shot B</h4><span>Product Visualization</span></div></div>
+    <div class="gallery-item reveal reveal-delay-2" onclick="openLightbox(this)"><img src="image/gallery/baseball/CCCCCC.jpeg" alt="Baseball CCCCCC" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Studio Shot — Collection</h4><span>Product Visualization</span></div></div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)"><img src="image/gallery/baseball/rYkjx7wN.jpeg" alt="Baseball rYkjx7wN" /><div class="gallery-overlay"><div class="icon-circle"><span class="iconify" data-icon="lucide:maximize-2"></span></div><h4>Detail — Texture Study</h4><span>Product Visualization</span></div></div>
+  </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="gallery-cta-section">
+  <div class="gallery-cta-inner">
+    <span class="section-label reveal" style="color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.1);padding:6px 16px;border-radius:9999px;">Let's Collaborate</span>
+    <h2 class="reveal reveal-delay-1">Have a project in mind? We'd love to visualize it.</h2>
+    <p class="reveal reveal-delay-2">Whether it's an architectural render, a product prototype, or a complete brand experience — our team is ready to bring your vision to life with stunning, photorealistic detail.</p>
+    <div class="btn-wrap reveal reveal-delay-3">
+      <a href="contact.html" class="btn" style="background:#FF6B4A;color:#fff;border-color:#FF6B4A;">
+        Start Your Project <span class="iconify" data-icon="lucide:arrow-right"></span>
+      </a>
+      <a href="services/architectural-visualization.html" class="btn btn-outline-white">
+        Explore Our Services
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:12px;display:inline-flex;">
+          <img src="image/techzolution-logo/techzolution-logo.png" alt="Techzolution" style="height:36px;filter:brightness(0) invert(1);opacity:0.9;" />
+        </a>
+        <p>A global team of builders, designers, and engineers turning bold ideas into digital platforms, physical products, and intelligent systems.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/website-development.html">Website Development</a></li>
+          <li><a href="services/print-on-demand.html">Print-on-Demand</a></li>
+          <li><a href="services/plastic-mold-design.html">Plastic Mold Design</a></li>
+          <li><a href="services/architectural-visualization.html">Architectural Viz</a></li>
+          <li><a href="services/ai-automation.html">AI &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="team.html">Meet the Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:Techzolution12@gmail.com">Techzolution12@gmail.com</a></li>
+          <li><a href="tel:+2347049324036">+234 704 932 4036</a></li>
+          <li><a href="tel:+2348161570549">+234 816 157 0549</a></li>
+          <li><span style="color:rgba(255,255,255,0.4);font-size:13px;">Mon – Fri, 9am – 4pm</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Techzolution. All rights reserved. · Based in Ibadan, Nigeria.</span>
+      <span>Built by <a href="#">Techzolution</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxBg(event)">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">
+    <span class="iconify" data-icon="lucide:x" data-width="22"></span>
+  </button>
+  <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1, event)" aria-label="Previous">
+    <span class="iconify" data-icon="lucide:chevron-left" data-width="24"></span>
+  </button>
+  <div class="lightbox-content" id="lightboxContent">
+    <img id="lightboxImg" src="" alt="" />
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+  <button class="lightbox-nav lightbox-next" onclick="navLightbox(1, event)" aria-label="Next">
+    <span class="iconify" data-icon="lucide:chevron-right" data-width="24"></span>
+  </button>
+</div>
+
+<!-- ===== FLOATING BUTTONS ===== -->
+<div class="floating-btns">
+  <a href="mailto:Techzolution12@gmail.com" class="float-btn float-btn-mail" aria-label="Email us">
+    <span class="float-tooltip">Email Us</span>
+    <span class="iconify" data-icon="lucide:mail" data-width="22"></span>
+  </a>
+  <a href="https://wa.me/2347049324036" target="_blank" rel="noopener" class="float-btn float-btn-wa" aria-label="Chat on WhatsApp">
+    <span class="ping"></span>
+    <span class="float-tooltip">WhatsApp</span>
+    <span class="iconify" data-icon="lucide:message-circle" data-width="22"></span>
+  </a>
+</div>
+
+<!-- Scroll to top -->
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <span class="iconify" data-icon="lucide:arrow-up" data-width="20"></span>
+</button>
+
+<!-- ===== JS ===== -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }});
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTopBtn').classList.toggle('visible', window.scrollY > 600);
+  });
+
+  const ham = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  ham.addEventListener('click', () => {
+    ham.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      const sections = document.querySelectorAll('.gallery-section');
+      sections.forEach(sec => {
+        if (filter === 'all' || sec.dataset.section === filter) {
+          sec.style.display = '';
+          sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+      if (filter === 'all') {
+        window.scrollTo({ top: document.querySelector('.filter-bar').offsetTop - 100, behavior: 'smooth' });
+      }
+    });
+  });
+
+  let lightboxImages = [];
+  let lightboxIndex = 0;
+
+  function openLightbox(item) {
+    const img = item.querySelector('img');
+    const allItems = Array.from(document.querySelectorAll('.gallery-item')).filter(i => i.offsetParent !== null);
+    lightboxImages = allItems.map(i => ({ src: i.querySelector('img').src, alt: i.querySelector('img').alt }));
+    lightboxIndex = allItems.indexOf(item);
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxImg').alt = img.alt;
+    document.getElementById('lightboxCaption').textContent = img.alt + `  ·  ${lightboxIndex + 1} / ${lightboxImages.length}`;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeLightboxBg(e) {
+    if (e.target.id === 'lightbox') closeLightbox();
+  }
+  function navLightbox(dir, e) {
+    e.stopPropagation();
+    lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+    const { src, alt } = lightboxImages[lightboxIndex];
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightboxImg').alt = alt;
+    document.getElementById('lightboxCaption').textContent = alt + `  ·  ${lightboxIndex + 1} / ${lightboxImages.length}`;
+  }
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1, { stopPropagation: () => {} });
+    if (e.key === 'ArrowRight') navLightbox(1, { stopPropagation: () => {} });
+  });
+</script>
+</body>
+</html>
