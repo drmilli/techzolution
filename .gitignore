@@ -1,0 +1,4 @@
+.env
+.env.*
+!.env.seed.example
+node_modules/

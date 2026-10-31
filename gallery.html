@@ -600,6 +600,8 @@
   </div>
 </section>
 
+<div class="container" style="padding-top:20px;padding-bottom:20px;display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;"><p id="gallery-load-status" role="status"></p><a href="upload.html" class="btn btn-primary">Upload photos</a></div>
+
 <!-- ===== FILTER BAR ===== -->
 <div class="filter-bar">
   <div class="filter-inner">
@@ -1030,5 +1032,6 @@
     if (e.key === 'ArrowRight') navLightbox(1, { stopPropagation: () => {} });
   });
 </script>
+<script type="module" src="js/gallery.js"></script>
 </body>
 </html>
