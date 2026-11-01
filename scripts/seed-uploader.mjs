@@ -1,5 +1,14 @@
-// Local/server-only script. Requires Node 20+; no dependencies.
+// Local/server-only script. Requires Node 20.12+; no dependencies.
 // Never deploy .env.seed or this script's administrative credentials.
+// Load local credentials automatically; supplied environment variables take precedence.
+if (['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY', 'UPLOADER_EMAIL', 'UPLOADER_PASSWORD'].some(key => !process.env[key])) {
+  const { loadEnvFile } = await import('node:process');
+  try {
+    loadEnvFile(new URL('../.env.seed', import.meta.url));
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+}
 const { SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, UPLOADER_EMAIL, UPLOADER_PASSWORD } = process.env;
 if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY || !UPLOADER_EMAIL || !UPLOADER_PASSWORD) {
   console.error('Set SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, UPLOADER_EMAIL, and UPLOADER_PASSWORD in .env.seed.');

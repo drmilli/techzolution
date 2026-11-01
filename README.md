@@ -18,13 +18,13 @@ Gallery visitors do not need an account. Uploaded images are public.
    can insert photos or upload files, even if another account exists.
 4. Copy `.env.seed.example` to `.env.seed` and supply the project URL, legacy
    service-role key, uploader email, and a strong password. Keep this file local.
-5. With Node 20.6+ run:
+5. With Node 20.12+ run:
 
    ```sh
-   node --env-file=.env.seed scripts/seed-uploader.mjs
+   node scripts/seed-uploader.mjs
    ```
 
-   The script creates a confirmed account through Supabase Admin Auth. If the
+   The script automatically loads `.env.seed` from the project root and creates a confirmed account through Supabase Admin Auth. If the
    email already exists it grants upload access without changing its password.
    Sign out and back in after granting access to refresh the session token.
 6. Serve the site over HTTP locally, e.g. `python3 -m http.server 8080`, then open
